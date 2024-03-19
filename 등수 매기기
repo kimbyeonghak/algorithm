@@ -1,0 +1,31 @@
+// 같은 점수면 같은 등수로
+
+#include<cstdio>
+int main(){
+	
+	int i,j,n,cnt=0;
+	int grade[10000];
+	int score[10000];
+	
+	scanf("%d",&n);
+	
+	for(i=0;i<n;i++){
+		scanf("%d",&score[i]);
+	}
+
+	for(i=0;i<n;i++){
+		grade[i] = 1;
+		cnt = 1;
+		for(j=0;j<n;j++){
+			if(score[i]<score[j]){
+				cnt++;
+				grade[i] = cnt;
+			}
+		}
+	}
+	for(i=0;i<n;i++){
+		printf("%d\n",grade[i]);
+	}
+	
+	return 0;
+}
