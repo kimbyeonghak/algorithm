@@ -1,0 +1,34 @@
+// vector 사용
+// 심사위원 n의 최댓값과 최솟값을 뺀 평균 출력
+
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main(){
+	int judge, sum=0, avg=0, score=0;
+	int max=0,min=101;
+	vector<int> v;
+	scanf("%d",&judge);
+	
+	for(int i = 0; i<judge;i++){
+		scanf("%d",&score);
+		v.push_back(score);
+	}
+	
+	for(int i = 0; i<judge;i++){
+		if(v[i]>max){
+			max = v[i];
+		}
+		if(v[i]<min){
+			min = v[i];
+		}
+		sum += v[i];
+	}
+	printf("max : %d, min : %d\n",max,min);
+	sum = sum - max - min;
+	avg = sum/(judge-2);
+	
+	printf(" 최종 : %d",avg);	
+
+}
