@@ -1,0 +1,33 @@
+// 오르막길의 최댓값을 구해서 그 구간 출력하기
+
+#include<cstdio>
+#include<vector>
+using namespace std;
+int main(){
+	int n,start,end,gap=0,max;
+	int hill[100000];
+		
+	scanf("%d",&n);
+	for(int i=0;i<n;i++){
+		scanf("%d",&hill[i]);
+	}
+	
+	for(int i=0;i<n;i++){
+		if(hill[i]<hill[i+1]){
+			gap = hill[i+1]-hill[i];
+			if(gap>max){
+				max = gap;
+				start = i+1;
+				end = i+2;
+			}
+		}		
+	}
+	if(gap == 0){
+		printf("%d",gap);
+	}
+	else{
+		printf("%d %d",start,end);
+	}
+
+	return 0;
+} 
