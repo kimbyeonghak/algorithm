@@ -1,0 +1,20 @@
+#include<cstdio>
+int main(){
+	int n, S[100];
+	scanf("%d", &n);
+	for(int i=0; i<n;i++){
+		scanf("%d",&S[i]);
+	}
+	
+	int sum = 0;
+	for(int i = n-2; i >=0; i--){
+		
+		if(S[i+1]<=S[i]){
+			int diff = S[i]-S[i+1]+1;
+			sum+= diff;
+			S[i] = S[i] -diff;
+		}
+	}
+	printf("%d",sum);
+	return 0;
+}
