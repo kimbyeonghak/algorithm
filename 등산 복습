@@ -1,0 +1,43 @@
+#include<cstdio>
+#include<vector>
+using namespace std;
+
+int main(){
+	int n,start,end,gap=0,max=0;
+	vector<int> hill;
+	
+	scanf("%d",&n);
+	
+	for(int i=0;i<n;i++){
+		
+		int temp;
+		scanf("%d",&temp);
+		hill.push_back(temp);
+	}
+	
+	for(int i=0;i<hill.size()-1;i++){
+		if(hill[i]<hill[i+1]){
+			gap = hill[i+1] - hill[i];
+
+			if(max<gap){
+				max = gap;
+				start = i+1;
+				end = i+2;
+
+			}	
+
+		}
+	
+	}
+
+	if(gap==0){
+		printf("0");
+	}
+	else{
+		printf("%d %d",start,end);
+	}
+	
+	return 0;
+	
+	
+}
