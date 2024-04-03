@@ -1,0 +1,37 @@
+#include<cstdio>
+#include<vector>
+using namespace std;
+int main(){
+	vector<int> stud[1000];
+	int n,m,count=0;
+	
+	scanf("%d",&n);
+	scanf("%d",&m);
+	
+	for(int i =0;i<m;i++){
+		int from, to;
+		scanf("%d %d",&from,&to);
+		stud[from].push_back(to);
+	}
+	
+	for(int i=1;i<=n;i++){
+		for(int j=0;j<stud[i].size();j++){
+
+
+
+			int temp = stud[i][j];    
+			for(int k=0;k<stud[temp].size();k++){	
+				if(i==stud[temp][k]){
+					printf("%d ",temp);
+					count++;
+					break;
+				}
+			}
+		}
+		if(count==0){
+			printf("0");
+		}
+		printf("\n"); 
+	}
+	return 0;
+}
