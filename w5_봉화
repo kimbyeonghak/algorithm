@@ -1,0 +1,25 @@
+#include<cstdio>
+
+int main(){
+	
+	int N,cnt=1;
+	int h[10000];
+	scanf("%d", &N);
+	
+	for(int i=1;i<=N;i++){
+		scanf("%d", &h[i]);
+	}
+	
+	int max = h[N];
+
+	for(int i=N;i>=1;i--){
+
+		if(max<h[i-1]){
+			cnt++;
+			max = h[i-1];
+		}
+		
+	}
+	printf("%d",cnt);
+	return 0;
+}
