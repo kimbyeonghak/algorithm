@@ -1,0 +1,27 @@
+#include<cstdio>
+int main(){
+	int N,T,K,Tx,Ty,Kx,Ky,check=0,count=0;
+	int map[100][100]={0,};
+	scanf("%d",&N);
+	scanf("%d %d",&T,&K);
+	
+	for(int i=0;i<T;i++){
+		scanf("%d %d",&Tx,&Ty);
+		map[Tx][Ty] = 1;
+	}
+	
+	for(int i=0;i<K;i++){
+		scanf("%d %d",&Kx,&Ky);
+		count++;
+		if(map[Kx][Ky]==1){
+			printf("%d",count);
+			check=1;
+			break;
+		}
+	}
+	if(!check){
+		printf("-1");
+	}
+	
+	return 0;
+}
