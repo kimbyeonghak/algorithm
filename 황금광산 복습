@@ -1,0 +1,31 @@
+#include<cstdio>
+#include<vector>
+using namespace std;
+int main(){
+	
+	int M,N,sum=0,max=0,cx,cy;
+	int cave[100][100]={0,};
+	scanf("%d %d",&M,&N);
+	
+	for(int i=1;i<=N;i++){
+		for(int j=1;j<=M;j++){
+			scanf("%d",&cave[i][j]);
+		}
+	}
+
+	for(int i=1;i<=N;i++){
+		for(int j=1;j<=M;j++){
+			
+			printf("%d ",cave[i][j]);
+			sum= cave[i][j]+cave[i+1][j]+cave[i-1][j]+cave[i][j-1]+cave[i][j+1];
+			if (sum > max)
+			{
+				max = sum;
+				cx=i;
+				cy=j;
+			}
+		}
+		printf("\n");
+	}
+	printf("%d %d %d",cy,cx,max);
+}
