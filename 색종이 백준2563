@@ -1,0 +1,28 @@
+#include<cstdio>
+
+int main(){
+	
+	int paper[101][101]={0,};
+	int n,px,py,count=0;
+	
+	scanf("%d",&n);
+	
+	for(int i=0;i<n;i++){
+		scanf("%d %d",&px,&py);
+		for(int j=px;j<px+10;j++){
+			for(int k=py;k<py+10;k++){
+				paper[j][k] = 1;
+			}
+		} 
+	}	
+	
+	for(int i=0;i<100;i++){
+		for(int j=0;j<100;j++){
+//			printf("%d ",paper[i][j]);
+			count += paper[i][j];
+		}
+//		printf("\n");
+	}
+	printf("%d",count);
+	return 0;
+}
