@@ -1,0 +1,49 @@
+#include<cstdio>
+#include<vector>
+using namespace std; 
+int main(){
+	int N,M,C,X,Y;
+	int map[101][101]={0,};
+	
+	scanf("%d %d",&N,&M);
+	scanf("%d",&C);
+	
+	for(int i=0;i<C;i++){
+		scanf("%d %d",&X,&Y); // 2, 1 1행 2열
+		map[Y][X] = -1; 
+		
+		if(map[Y][X-1]!=-1){
+			map[Y][X-1]++;
+		}
+		if(map[Y][X+1]!=-1){
+			map[Y][X+1]++;
+		}
+		if(map[Y-1][X-1]!=-1){
+			map[Y-1][X-1]++;
+		}
+		if(map[Y-1][X]!=-1){
+			map[Y-1][X]++;
+		}
+		if(map[Y-1][X+1]!=-1){
+			map[Y-1][X+1]++;
+		}
+		if(map[Y+1][X-1]!=-1){
+			map[Y+1][X-1]++;
+		}
+		if(map[Y+1][X]!=-1){
+			map[Y+1][X]++;
+		}
+		if(map[Y+1][X+1]!=-1){
+			map[Y+1][X+1]++;
+		}
+	
+	}
+	
+	for(int i=1;i<=M;i++){
+		for(int j=1;j<=N;j++){
+			printf("%d ",map[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
