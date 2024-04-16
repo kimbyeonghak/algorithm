@@ -1,0 +1,18 @@
+#include<cstdio>
+
+int Hanoi(int n,int from,int temp, int to){
+	if (n==1) {
+		printf("%d %d",from,to);	
+	}
+	else{
+	Hanoi(n-1,from,to,temp);
+	printf("\n%d %d\n",from,to);
+	Hanoi(n-1,temp,from,to);	
+	}
+}
+int main(){
+	int n;
+	scanf("%d",&n);
+	Hanoi(n,1,2,3);
+	
+}
