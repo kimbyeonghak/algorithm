@@ -1,0 +1,42 @@
+#include<cstdio>
+int main(){
+	
+	int n;
+	char s[1001];
+	scanf("%d",&n);
+	scanf("%s",s);
+	
+	for(int i=0;s[i];i++){
+		if(s[i]>'Z'){
+			s[i] = s[i]-26;
+		}
+		s[i] += n;
+
+		printf("%c",s[i]);
+	}
+}
+////////////
+#include<cstdio>
+
+int main(){
+	
+	int num=0;
+	int count[26];
+	char s[1001];
+	scanf("%s",s);
+	for(int i=0;i<26;i++){
+		count[i] = -1;
+	}
+	
+	for(int i=0;s[i];i++){
+		
+		if(count[s[i] - 'a']==-1){
+			count[s[i] -'a'] = i;	
+		}
+
+	}
+	for(int i=0;i<26;i++){
+		printf("%d ",count[i]);
+	}
+	
+}
