@@ -1,0 +1,27 @@
+#include<cstdio>
+
+int main(){
+	int n,cnt=0;
+	int list[26]={0,};
+	char s[1000];
+	
+	scanf("%d",&n);
+	
+	for(int i=0;i<n;i++){
+		scanf("%s",s);
+		list[s[0]-'a']++;
+	}
+	
+	for(int i=0;i<26;i++){
+		if(list[i]>=5){
+			printf("%c",i+'a');
+			cnt++;
+		}
+	}
+	
+	if(cnt<1){
+		printf("PREDAJA");
+	}
+	
+	return 0;
+}
