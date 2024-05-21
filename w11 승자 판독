@@ -1,0 +1,31 @@
+#include<cstdio>
+#include<utility>
+#include<iostream>
+using namespace std;
+
+int main(){
+	
+	pair<int,int> score[10001];
+	pair<int,int> first={-1,-1};
+	int n,t,a,ans;
+	
+	cin >> n;
+	for(int i = 0;i<n;i++){
+		cin >> t >> a;
+		score[i] = make_pair(t,a);
+
+		if (score[i]>first){
+
+			ans = i;
+			first = score[i];
+
+		}
+	}
+	cout<<ans+1;
+}
+5
+68 70
+70 53 
+81 69
+77 83
+62 71
