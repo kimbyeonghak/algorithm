@@ -1,0 +1,30 @@
+#include<cstdio>
+#include<iostream>
+#include<utility>
+using namespace std;
+
+int main(){
+	int n,score,m,t,ans=0;
+	pair<int,int> runner[1001];
+	pair<int,int> first = { -1, -1};
+	score=5000;
+	cin >> n;
+	for(int i=0;i<n;i++){
+		cin >> m >> t;
+		runner[i] = make_pair(m,t);
+		ans+=runner[i].first;
+		if (runner[i]>first){
+			first = runner[i];
+		}
+	}
+	cout << 5000-first.second+77;
+//	cout << "\n" << " 걸린 시간 " <<(score-first.second);
+//	cout << (ans-first.first)+(score-first.second);
+}
+//
+5
+11 153
+27 273
+16 176
+23 241
+27 281
