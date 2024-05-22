@@ -1,0 +1,33 @@
+#include<cstdio>
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int main(){
+	int n,m,index,indexM,summ=0;
+	double a,indexA,suma=1.0;
+	pair<int,double> item[11];
+	
+	cin >> n;
+	for(int i=0;i<n;i++){
+		cin >> m >> a;
+		item[i] = make_pair(m,a);
+	}
+	cin >> index >> indexM >> indexA;
+	item[index-1] = make_pair(indexM,indexA);
+	
+	for(int i=0;i<n;i++){
+		summ += item[i].first;
+		suma *= item[i].second;
+	}
+
+	cout << int(summ * suma);
+	return 0;
+	
+}
+4
+1 2.0
+95 0.4
+27 1.4
+61 0.7
+1 10 1.8
