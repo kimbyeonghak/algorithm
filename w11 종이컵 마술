@@ -1,0 +1,40 @@
+#include<cstdio>
+#include<iostream>
+#include<stack>
+#include<queue>
+using namespace std;
+int main(){
+	int n,s,cnt;
+	stack<int> cup;
+	
+	cin >> n;
+	for(int i=0;i<n;i++){
+		cin >> s;
+
+		while(!cup.empty() && cup.top()<s){
+			cup.pop();
+		}
+		cup.push(s);
+	}
+	cout << cup.size();
+
+//	while(!cup.empty()){
+//		cout << cup.top() << " ";
+//		
+//		cup.pop();
+//	}
+	return 0;
+}
+//5
+//4
+//3
+//5
+//2
+//1
+//
+//5
+//1
+//1
+//1
+//2
+//1
