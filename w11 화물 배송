@@ -1,0 +1,34 @@
+#include<cstdio>
+#include<iostream>
+#include<stack>
+#include<queue>
+using namespace std;
+int main(){
+	int n,m;
+	string a;
+	stack<int> one;
+	queue<string> two;
+	
+	cin >> n;
+	for(int i=0;i<n;i++){
+		cin >> m >> a;
+		one.push(m);
+		two.push(a);
+	}
+	
+	while(!one.empty()){
+		cout << one.top() << " ";
+		one.pop();
+	}
+	cout << "\n";
+	while(!two.empty()){
+		cout << two.front() << " ";
+		two.pop();
+	}
+	return 0;
+}
+//4
+//13 C3
+//20 Coding
+//16 is
+//7 fun
