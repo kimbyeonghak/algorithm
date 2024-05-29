@@ -1,0 +1,50 @@
+#include<algorithm>
+#include<iostream>
+using namespace std;
+struct character{
+	int level,e,p;
+};
+bool cmp(character left, character right){
+	if(left.level > right.level){
+		return true;
+	}
+	else if(left.level == right.level){
+		if(left.e>right.e){
+			return true;
+		}
+		else if(left.e == right.e){
+			return left.p > right.p;
+		}
+		else{
+			return false;
+		}
+	}
+	else{
+		return false;
+	}
+}
+
+int main(){
+	character c[100001];
+	int n;
+	cin >> n;
+	for(int i=0;i<n;i++){
+		cin >> c[i].level >> c[i].e >> c[i].p;
+	}
+	sort(c,c+n,cmp);
+	cout << "\n";
+	for(int i=0;i<n;i++){
+		cout <<c[i].level << " " << c[i].e << " " << c[i].p << " " << "\n";
+	}
+	return 0;
+}
+/*
+7
+148 124 567
+126 507 234
+214 871 917
+126 506 234
+215 871 934
+187 486 746
+148 124 504
+*/
