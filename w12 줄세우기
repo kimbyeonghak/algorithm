@@ -1,0 +1,25 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(){
+	
+	int n,cnt=0;
+	double h[201];
+	double temp_h[201];
+	cin >> n;
+	for(int i=0;i<n;i++){
+		cin >> h[i];
+		temp_h[i] = h[i];
+	}
+	sort(h,h+n);
+	for(int i=0;i<n;i++){
+		if(h[i]!=temp_h[i]){
+			cnt++;
+		}
+	}
+	cout << cnt;
+	return 0;
+	
+}
+//10
+//156.7 142.7 148.4 151.8 168.9 132.5 159.1 170.3 153.5 162.2
