@@ -1,0 +1,38 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+int main(){
+	string s;
+	int t;
+	cin >> t;
+	for(int i=0;i<t;i++){
+		stack<char> zz;
+		cin >> s;
+		for(int j=0;s[j];j++){
+		
+			if(zz.empty()){
+				zz.push(s[j]); 
+			}else if(zz.top()=='(' && s[j]==')'){
+				zz.pop() ;			
+			}else{
+				zz.push(s[j]);
+			}
+		}
+		if(zz.empty()){
+			cout << "YES\n";
+		}
+		else{
+			cout << "NO\n";
+		}
+	}
+	return 0;
+}
+/*
+6
+(())())
+(((()())()
+(()())((()))
+((()()(()))(((())))()
+()()()()(()()())()
+(()((())()(
+*/
