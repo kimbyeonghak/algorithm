@@ -1,0 +1,27 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+int main(){
+	stack<char> s;
+	string laser;
+	int check,ans=0;
+	
+	cin >> laser;
+	
+	for(int i=0;laser[i];i++){
+		if(laser[i]=='('){
+			s.push(laser[i]);
+		}
+		else {
+			s.pop() ;
+			if(laser[i-1] == '('){
+				ans += s.size();
+			}
+			else{
+				ans++;
+			}
+		}
+	}
+	cout << ans;
+	return 0;
+}
