@@ -1,0 +1,27 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+int main(){
+	
+	stack<int> s;
+	string stick;
+	cin >> stick;
+	int ans=0;
+	
+	for(int i = 0;stick[i];i++){
+		if(stick[i]=='('){
+			s.push(stick[i]); 
+		}
+		else {
+			s.pop();
+			if(stick[i-1]=='('){
+				ans += s.size() ;
+			}
+			else{
+				ans++;
+			}	
+		}
+	}
+	cout << ans;
+	return 0;
+}
