@@ -1,0 +1,61 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+int main(){
+	
+	stack<int> s;
+	string stick;
+	cin >> stick;
+	int ans=0;
+	
+	for(int i = 0;stick[i];i++){
+		if(stick[i]=='('){
+			s.push(stick[i]); 
+		}
+		else {
+			s.pop();
+			if(stick[i-1]=='('){
+				ans += s.size() ;
+			}
+			else{
+				ans++;
+			}	
+		}
+	}
+	cout << ans;
+	return 0;
+}
+
+#include<cstdio>
+#include<stack>
+#include<vector>
+using namespace std;
+int main(){
+	stack<pair<int,int>> s;	
+	int n , k;
+	
+	scanf("%d",&n);
+	for(int i=1;i<=n;i++){
+		scanf("%d",&k);
+		
+		if(s.empty()){
+			s.push({i,k});
+			printf("0 ");
+		}else{
+			while(!s.empty()){
+				if(s.top().second<k){
+					s.pop(); 
+				}
+				else{
+					printf("%d ",s.top().first);
+					break;
+				}
+			}
+			if(s.empty()){
+				printf("0 ");
+			}
+			s.push({i,k});
+		}
+	}
+	return 0;
+}
