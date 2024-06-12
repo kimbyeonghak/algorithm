@@ -1,0 +1,57 @@
+#include<iostream>
+#include<string>
+#include<stack>
+
+using namespace std;
+int main(){
+	string cc;
+	stack<char> s;
+	cin >> cc;
+	int temp=1;
+	int answer = 0;
+	for(int i =0;cc[i];i++){
+		if(cc[i] == '('){
+			temp *=2;
+			s.push(cc[i]); 
+		}
+		else if(cc[i] == '['){
+			temp *=3;
+			s.push(cc[i]);
+		}
+		else if(cc[i] ==  ')'){
+			if(s.empty() || s.top()!='('){
+				answer = 0;
+				break;
+			}
+			if(cc[i-1] == '('){
+				answer += temp;
+				temp /=2;
+				s.pop() ;
+			}
+			else{
+				temp /= 2;
+				s.pop() ;
+			}
+		}
+		else if(cc[i] == ']'){
+			if(s.empty() || s.top()!='['){
+				answer = 0;
+				break;
+			}
+			if(cc[i-1] == '['){
+				answer += temp;
+				temp /=3;
+				s.pop() ;
+			}
+			else{
+				temp /= 3;
+				s.pop() ;
+			}
+		}
+	}
+	if(!s.empty()){
+		answer = 0;
+	}
+	cout << answer ;
+	return 0;
+}
