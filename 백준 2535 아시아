@@ -1,0 +1,42 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+struct Person {
+    int country;
+    int number;
+    int score;
+};
+
+bool cmp(const Person left, const Person right) {
+    return left.score > right.score;
+}
+
+int main() {
+    Person student[101];
+    int n, count = 0;
+    cin >> n;
+    
+    vector<int> medal(101, 0);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> student[i].country >> student[i].number >> student[i].score;
+    }
+    
+    sort(student, student + n, cmp);
+    
+    for (int i = 0; i < n; i++) {
+        if (medal[student[i].country] >= 2) {
+            continue;
+        }
+        medal[student[i].country]++;
+        cout << student[i].country << " " << student[i].number << "\n";
+        count++;
+        if (count >= 3) {
+            break;
+        }
+    }
+    
+    return 0;
+}
