@@ -1,0 +1,33 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+
+int main(){
+	int n,cnt=0;
+	cin >> n;
+	for(int i = 0;i<n;i++){
+		string ccc;
+		stack<char> s;
+		cin >> ccc;
+		
+		for(int j=0;ccc[j];j++){
+			if(s.empty()){
+				s.push(ccc[j]); 
+			}
+			else if(s.top()=='A' && ccc[j] == 'A'){
+				s.pop() ;
+			}
+			else if(s.top() =='B' && ccc[j]== 'B'){
+				s.pop() ;
+			}
+			else{
+				s.push(ccc[j]); 
+			}
+		}
+		if(s.empty()){
+			cnt++;
+		}
+	}
+	cout << cnt;
+	return 0;
+}
