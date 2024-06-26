@@ -1,0 +1,37 @@
+#include<algorithm>
+#include<iostream>
+using namespace std;
+
+struct asia{
+	int country,num,score;
+};
+bool cmp(const asia left, const asia right){
+	return left.score>right.score;
+}
+int main(){
+	asia stud[101];
+	int n;
+	scanf("%d",&n);
+	
+	for(int i = 0;i<n;i++){
+		scanf("%d %d %d",&stud[i].country ,&stud[i].num ,&stud[i].score);
+		
+	}
+	sort(stud,stud+n,cmp);
+	
+	int cnt_country[101]={0,};
+	int check=0;
+	for(int i=0;i<n;i++){
+		
+		if(cnt_country[stud[i].country]>=2){
+			continue;
+		}
+		printf("%d %d\n",stud[i].country ,stud[i].num );
+		cnt_country[stud[i].country]++;
+		check++;
+		if(check>=3){
+			break;
+		}
+	}
+	return 0;
+}
