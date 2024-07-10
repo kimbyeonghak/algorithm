@@ -1,0 +1,43 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int wine[10001];
+    int dp[10001];
+
+    for (int i = 1; i <= n; i++) {
+        cin >> wine[i];
+    }
+
+    dp[0] = 0;
+    dp[1] = wine[1];
+    dp[2] = wine[1] + wine[2];
+
+    for (int i = 3; i <= n; i++) {
+        int option1 = dp[i - 1];
+        int option2 = dp[i - 2] + wine[i];
+        int option3 = dp[i - 3] + wine[i - 1] + wine[i];
+
+        // Using if-else to find the maximum value without using max function
+        if (option1 > option2) {
+            if (option1 > option3) {
+                dp[i] = option1;
+            } else {
+                dp[i] = option3;
+            }
+        } else {
+            if (option2 > option3) {
+                dp[i] = option2;
+            } else {
+                dp[i] = option3;
+            }
+        }
+    }
+
+    cout << dp[n] << endl;
+
+    return 0;
+}
