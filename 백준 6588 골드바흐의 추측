@@ -1,7 +1,7 @@
 #include<cstdio>
 
-const int MAX=1000;
-int is_prime[MAX];
+const int MAX=1000000;
+int is_prime[MAX+1];
 
 int main(){
 	
@@ -12,7 +12,7 @@ int main(){
 	is_prime[0]=0;
 	is_prime[1]=0;
 	
-	for(int i=2;i<=MAX;i++){
+	for(int i=2;i*i<=MAX;i++){
 		if(is_prime[i]){
 			for(int j=i*i;j<=MAX;j+=i){
 				is_prime[j] = 0;
