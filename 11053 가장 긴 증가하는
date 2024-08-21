@@ -28,3 +28,33 @@ int main() {
     printf("%d\n", maxLength);
     return 0;
 }
+11055 가장 큰
+#include<cstdio>
+
+int ar[1001];
+int dp[1001];
+int final[1001];
+int main(){
+	int n,max=1;
+	scanf("%d",&n);
+	
+	for(int i =0;i<n;i++){
+		scanf("%d",&ar[i]);
+		dp[i]= ar[i];
+		
+	}
+	dp[0] = ar[0];
+	max = ar[0];
+	
+	for(int i=1;i<n;i++){
+		for(int j=0;j<i;j++){
+			if(ar[i]>ar[j]&&dp[i]<dp[j]+ar[i]){
+				dp[i]=dp[j]+ar[i];
+			}
+		}
+		if(max<dp[i]){
+			max = dp[i];
+		}
+	}
+	printf("%d",max);
+}
