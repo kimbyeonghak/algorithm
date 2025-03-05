@@ -1,0 +1,43 @@
+#include<algorithm>
+#include<iostream>
+using namespace std;
+
+struct soccer{
+	int m;
+	int v;
+	int energy;
+};
+
+bool cmp(const soccer &a, const soccer &b)
+{
+	return a.energy > b.energy;
+}
+int main()
+{
+	soccer p[10];
+	int n;
+	cin >> n;
+	
+	for(int i=0;i<n;i++)
+	{
+		cin >> p[i].m >> p[i].v;
+		p[i].energy = (p[i].m*p[i].v*p[i].v)/2;
+	}
+	sort(p,p+n,cmp);
+	for(int i=0;i<3;i++)
+	{
+		cout << p[i].m << " " << p[i].v << "\n";
+	}
+}
+//
+6
+95 13
+58 17
+64 15
+105 11
+73 14
+125 9
+==>
+58 17
+95 13
+64 15
