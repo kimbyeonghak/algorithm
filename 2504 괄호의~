@@ -1,0 +1,65 @@
+#include<stack>
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	stack<char> s;
+	string vps;
+	cin >> vps;
+	
+	int ans=0;
+	int temp=1;
+	for(int i=0;vps[i];i++)
+	{
+		if(vps[i]=='(')
+		{
+			s.push(vps[i]);
+			temp*=2;
+		}
+		else if(vps[i]=='[')
+		{
+			s.push(vps[i]);
+			temp*=3;
+		}
+		else if(vps[i]==')')
+		{
+			if(s.empty() || s.top()!='(')
+			{
+				ans = 0;
+				break;
+			}
+			if(vps[i-1]=='(')
+			{
+				ans += temp;
+				temp/=2;
+				s.pop() ;
+			}
+			else
+			{
+				temp/=2;
+				s.pop();
+			}
+		}
+		else if(vps[i]==']')
+		{
+			if(s.empty() || s.top()!='[')
+			{
+				ans = 0;
+				break;
+			}
+			if(vps[i-1]=='[')
+			{
+				ans += temp;
+				temp/=3;
+				s.pop() ;
+			}
+			else
+			{
+				temp/=3;
+				s.pop() ;
+			}
+		}
+	}
+	cout << ans;
+}
