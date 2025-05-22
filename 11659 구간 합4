@@ -1,0 +1,11 @@
+    cin >> n >> m;
+    for(int i = 1; i <= n; i++){
+        cin >> a;
+        s[i] = s[i-1] + a;
+    }
+    
+    for(int i = 1; i <= m; i++){
+        int st, en;
+        cin >> st >> en;
+        cout << s[en] - s[st-1] << '\n';
+    }
