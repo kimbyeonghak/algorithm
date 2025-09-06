@@ -1,0 +1,11 @@
+dp = [0] * 1001
+
+def d(n):
+    if n==1 :return 1
+    if n== 2 :return 2
+    if dp[n] != 0 :return dp[n]
+    dp[n] = (d(n-1) + d(n-2)) %10007
+    return dp[n]
+
+n = int(input())
+print(d(n))
