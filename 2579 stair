@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    int stair[301];
+    int dp[301];
+    
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        scanf("%d", &stair[i]);
+    }
+
+    dp[0] = 0;
+    dp[1] = stair[1];
+    if (n >= 2) dp[2] = stair[1] + stair[2];
+
+    for (int i = 3; i <= n; i++) {
+        int case1 = dp[i-2] + stair[i];                 // i-2 → i
+        int case2 = dp[i-3] + stair[i-1] + stair[i];    // i-3 → i-1 → i
+
+        if (case1 > case2) dp[i] = case1;
+        else dp[i] = case2;
+    }
+
+    printf("%d\n", dp[n]);
+    return 0;
+}
