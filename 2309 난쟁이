@@ -1,0 +1,22 @@
+arr=[]
+for i in range(9):
+    h = int(input())
+    arr.append(h)
+    
+hap = sum(arr)
+one,two = 0, 0
+
+for i in range(9):
+    for j in range(i+1,9):
+        if hap-(arr[i]+arr[j]) == 100:
+            one,two =arr[i],arr[j]
+            break
+    if one!=0 and two!=0 :
+        break
+
+arr.remove(one)
+arr.remove(two)
+arr.sort()
+
+for i in arr:
+    print(i)
