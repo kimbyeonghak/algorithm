@@ -1,0 +1,18 @@
+n, m = map(int,input().split())
+li=[]
+k=0
+for i in range(n):
+    i = int(input())
+    li.append(i)
+li.reverse()
+
+for i in li:
+    if m == 0:
+        break
+    
+    if m>=i:
+        div=m//i
+        k+=div
+        m-=div*i
+        
+print(k)
