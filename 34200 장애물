@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int X[250005];
+    for (int i = 0; i < n; i++) scanf("%d", &X[i]);
+
+    long long pos = 0; // 현재 위치
+    long long moves = 0;
+
+    for (int i = 0; i < n; i++) {
+        long long need = X[i] - 1 - pos;
+
+        if (need < 0) {   // 이미 장애물 뒤에 있음 → 실패
+            printf("-1\n");
+            return 0;
+        }
+
+        // need 거리 만큼 최소 걸음/점프
+        moves += need/2 + need%2;
+        pos += need;
+
+        // 장애물 넘기
+        if (pos != X[i] - 1) {  // 반드시 이 지점이어야 함
+            printf("-1\n");
+            return 0;
+        }
+
+        moves++;
+        pos += 2; // 점프 후 X[i] + 1 로 이동
+    }
+
+    printf("%lld\n", moves);
+    return 0;
+}
+======================================================
+n = int(input())
+X = list(map(int, input().split()))
+
+pos = 0   # 현재 위치
+moves = 0 # 이동 횟수
+
+for x in X:
+    need = x - 1 - pos  # 다음 장애물 전까지 거리
+
+    if need < 0:  # 이미 지나쳤으면 불가능
+        print(-1)
+        break
+
+    # 가능한 한 점프로 이동 (2씩)
+    moves += need // 2 + need % 2  # 점프 + 걸음
+    pos = x - 1  # 점프하기 전 위치로 이동
+
+    moves += 1   # 점프로 장애물 넘기
+    pos += 2     # 점프 후 위치
+
+else:
+    print(moves)
