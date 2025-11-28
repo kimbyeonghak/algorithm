@@ -1,0 +1,26 @@
+n, s = map(int, input().split())
+arr = list(map(int, input().split()))
+
+l = 0
+cur_sum = 0
+min_len = 10**9   # 충분히 크게 잡아두는 값
+
+for r in range(n):
+    cur_sum += arr[r]
+
+    # 현재 구간의 합이 s 이상이면 길이를 갱신해볼 수 있음
+    while cur_sum >= s:
+        length = r - l + 1  # 현재 구간 길이
+
+        # min() 없이 직접 비교
+        if length < min_len:
+            min_len = length
+
+        # 왼쪽 포인터를 당겨서 더 짧은 구간 가능성 확인
+        cur_sum -= arr[l]
+        l += 1
+
+if min_len == 10**9:
+    print(0)
+else:
+    print(min_len)
