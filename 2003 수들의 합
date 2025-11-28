@@ -1,0 +1,20 @@
+n, m = map(int, input().split())
+arr = list(map(int, input().split()))
+
+l = 0
+cur_sum = 0
+cnt = 0
+
+for r in range(n):
+    cur_sum += arr[r]  # 오른쪽 확장
+
+    # 합이 m보다 크면 왼쪽을 줄이기
+    while cur_sum > m:
+        cur_sum -= arr[l]
+        l += 1
+
+    # 값을 찾으면 카운트 증가
+    if cur_sum == m:
+        cnt += 1
+
+print(cnt)
