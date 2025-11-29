@@ -1,0 +1,32 @@
+t = int(input())
+
+for _ in range(t):
+    n, k = map(int, input().split())
+    arr = list(map(int, input().split()))
+    arr.sort()
+
+    l = 0
+    r = n - 1
+
+    best = 2_000_000_000   # 최소 차이 저장
+    count = 0              # 최소 차이를 만드는 쌍의 개수
+
+    while l < r:
+        s = arr[l] + arr[r]
+        diff = abs(s - k)
+
+        if diff < best:
+            best = diff
+            count = 1     # 새로운 최소
+        elif diff == best:
+            count += 1    # 기존 최소 차이와 동일하므로 쌍 추가
+
+        if s < k:
+            l += 1
+        elif s > k:
+            r -= 1
+        else:
+            l += 1
+            r -= 1
+
+    print(count)
