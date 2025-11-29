@@ -1,0 +1,20 @@
+n = int(input())
+
+l = 1
+r = 1
+cur_sum = 1
+count = 0
+
+while r <= n:
+    if cur_sum < n:
+        r += 1
+        cur_sum += r
+    elif cur_sum > n:
+        cur_sum -= l
+        l += 1
+    else:  # cur_sum == n
+        count += 1
+        cur_sum -= l
+        l += 1
+
+print(count)
